@@ -13,6 +13,7 @@
 		FE09207327EA59CE001D9B3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE09207127EA59CE001D9B3D /* Main.storyboard */; };
 		FE09207527EA59E3001D9B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE09207427EA59E3001D9B3D /* Assets.xcassets */; };
 		FE09207827EA59E3001D9B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE09207627EA59E3001D9B3D /* LaunchScreen.storyboard */; };
+		FEBCBCDB2810714200AF9CBB /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBCBCDA2810714200AF9CBB /* BackgroundViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FE09207427EA59E3001D9B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE09207727EA59E3001D9B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE09207927EA59E3001D9B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEBCBCDA2810714200AF9CBB /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,48 @@
 		FE09206A27EA59CE001D9B3D /* UIKitApp */ = {
 			isa = PBXGroup;
 			children = (
-				FE09206B27EA59CE001D9B3D /* AppDelegate.swift */,
-				FE09206D27EA59CE001D9B3D /* SceneDelegate.swift */,
-				FE09206F27EA59CE001D9B3D /* ViewController.swift */,
-				FE09207127EA59CE001D9B3D /* Main.storyboard */,
-				FE09207427EA59E3001D9B3D /* Assets.xcassets */,
-				FE09207627EA59E3001D9B3D /* LaunchScreen.storyboard */,
+				FEBCBCD52810668700AF9CBB /* App */,
+				FEBCBCD72810669900AF9CBB /* Viewcontrollers */,
+				FEBCBCD62810668E00AF9CBB /* Assets */,
+				FEBCBCD42810667100AF9CBB /* Storyboards */,
 				FE09207927EA59E3001D9B3D /* Info.plist */,
 			);
 			path = UIKitApp;
+			sourceTree = "<group>";
+		};
+		FEBCBCD42810667100AF9CBB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FE09207127EA59CE001D9B3D /* Main.storyboard */,
+				FE09207627EA59E3001D9B3D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FEBCBCD52810668700AF9CBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FE09206B27EA59CE001D9B3D /* AppDelegate.swift */,
+				FE09206D27EA59CE001D9B3D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FEBCBCD62810668E00AF9CBB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FE09207427EA59E3001D9B3D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FEBCBCD72810669900AF9CBB /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				FE09206F27EA59CE001D9B3D /* ViewController.swift */,
+				FEBCBCDA2810714200AF9CBB /* BackgroundViewController.swift */,
+			);
+			path = Viewcontrollers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEBCBCDB2810714200AF9CBB /* BackgroundViewController.swift in Sources */,
 				FE09207027EA59CE001D9B3D /* ViewController.swift in Sources */,
 				FE09206C27EA59CE001D9B3D /* AppDelegate.swift in Sources */,
 				FE09206E27EA59CE001D9B3D /* SceneDelegate.swift in Sources */,
