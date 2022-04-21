@@ -7,17 +7,20 @@
 
 import UIKit
 
-class BackgroundViewController: UIViewController {
+protocol ViewControllerDelegate {
+    func setColor(_ color: UIColor) 
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+class BackgroundViewController: UIViewController, ViewControllerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let settingsVC = segue.destination as? ViewController else {return}
-        settingsVC.canvasView.backgroundColor = self.view.backgroundColor
-        
+        let settingsVC = segue.destination as! ViewController
+        settingsVC.delegate = self
+        settingsVC.canvasColor = view.backgroundColor
     }
+    
+    func setColor(_ color: UIColor) {
+        view.backgroundColor = color
+    }
+    
 }
