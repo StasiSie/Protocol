@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         canvasView.backgroundColor = canvasColor
         
+        
         setValue(redLevelLabel,greenLevelLabel,blueLevelLabel)
         setValue(redTextField,greenTextField,blueTextField)
     }
@@ -73,11 +74,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         blueTextField.text = String(format:"%.2f",blueLevelSlider.value)
     }
     @IBAction func saveButtonPressed() {
-        delegate.setColor(view.backgroundColor ?? .cyan)
+        delegate.setColor(canvasView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
     private func setCanvasBGColor() {
-        canvasView.backgroundColor = UIColor (red: CGFloat(redLevelSlider.value), green: CGFloat(greenLevelSlider.value), blue: CGFloat(blueLevelSlider.value), alpha: 1)
+        canvasView.backgroundColor = UIColor (red: CGFloat(redLevelSlider.value),
+                                              green: CGFloat(greenLevelSlider.value),
+                                              blue: CGFloat(blueLevelSlider.value),
+                                              alpha: 1)
     }
 
     private func setValue(_ labels: UILabel...) {
@@ -119,7 +123,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 setValue(blueLevelLabel)
             }
             
-            setCanvasBGColor()
             return
         }
     }
