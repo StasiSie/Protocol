@@ -8,7 +8,7 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet var canvasView: UIView!
     
@@ -28,14 +28,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
    
-    var delegate: ViewControllerDelegate!
-    var canvasColor: UIColor!
+//    var delegate: ViewControllerDelegate?
+    var canvasColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        canvasView.backgroundColor = UIColor (red: CGFloat(redLevelSlider.value), green: CGFloat(greenLevelSlider.value), blue: CGFloat(blueLevelSlider.value), alpha: 1)
-//
+        canvasView.backgroundColor = canvasColor
+        
         redLevelSlider.minimumTrackTintColor = .red
         greenLevelSlider.minimumTrackTintColor = .green
         blueLevelSlider.minimumTrackTintColor = .blue
@@ -44,16 +44,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         greenLevelLabel.text = String(greenLevelSlider.value)
         blueLevelLabel.text = String(blueLevelSlider.value)
         
-        canvasView.backgroundColor = canvasColor
-        
         
         setValue(redLevelLabel,greenLevelLabel,blueLevelLabel)
         setValue(redTextField,greenTextField,blueTextField)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
     }
     
     @IBAction func redSliderAction() {
@@ -74,9 +67,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         blueTextField.text = String(format:"%.2f",blueLevelSlider.value)
     }
     @IBAction func saveButtonPressed() {
-        delegate.setColor(canvasView.backgroundColor ?? .white)
+        delegate?.setColor(canvasView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
+    
     private func setCanvasBGColor() {
         canvasView.backgroundColor = UIColor (red: CGFloat(redLevelSlider.value),
                                               green: CGFloat(greenLevelSlider.value),
@@ -104,27 +98,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     private func makeString(_ slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        guard let text = textField.text else { return }
-        
-        if let currentValue = Float(text) {
-            switch textField {
-            case redTextField:
-                redLevelSlider.setValue(currentValue, animated: true)
-                setValue(redLevelLabel)
-            case greenTextField:
-                greenLevelSlider.setValue(currentValue, animated: true)
-                setValue(greenLevelLabel)
-            default:
-                blueLevelSlider.setValue(currentValue, animated: true)
-                setValue(blueLevelLabel)
-            }
-            
-            return
-        }
     }
 }
 
