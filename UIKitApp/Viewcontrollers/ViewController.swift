@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet var greenTextField: UITextField!
     @IBOutlet var blueTextField: UITextField!
    
-//    var delegate: ViewControllerDelegate?
+    var delegate: ViewControllerDelegate?
     var canvasColor: UIColor?
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         blueTextField.text = String(format:"%.2f",blueLevelSlider.value)
     }
     @IBAction func saveButtonPressed() {
-        delegate?.setColor(canvasView.backgroundColor ?? .white)
+        delegate?.setColor(color: canvasView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
     
